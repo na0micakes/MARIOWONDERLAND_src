@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://2iy7pgdhrs7p"]
+
+[ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_0o6vd"]
+[ext_resource type="FontFile" uid="uid://b8ceitev7cvk8" path="res://assets/fonts/super-mario-bros-nes.ttf" id="1_5al1l"]
+
+[node name="Node2D" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 801.0
+offset_top = 46.0
+offset_right = 841.0
+offset_bottom = 86.0
+script = ExtResource("1_0o6vd")
+
+[node name="PLAYER" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -731.0
+offset_top = -29.0
+offset_right = -587.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_5al1l")
+theme_override_font_sizes/font_size = 24
+text = "mario"
+
+[node name="WORLD" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -371.0
+offset_top = -29.0
+offset_right = -147.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_5al1l")
+theme_override_font_sizes/font_size = 24
+text = "WORLD
+ 1-1"
+
+[node name="TIME" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -29.0
+offset_right = 137.0
+offset_bottom = 7.0
+theme_override_colors/font_outline_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_5al1l")
+theme_override_font_sizes/font_size = 24
+text = "TIME"
+
+[node name="timer" type="Label" parent="Control/TIME"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 29.0
+offset_right = 183.0
+offset_bottom = 65.0
+theme_override_colors/font_outline_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_5al1l")
+theme_override_font_sizes/font_size = 24

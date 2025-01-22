@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw44qeytwyd1g"]
+
+[ext_resource type="Texture2D" uid="uid://c7yp1kf0y6m7" path="res://MARIOWONDERLAND_marioidle.png" id="1_aafyn"]
+[ext_resource type="AudioStream" uid="uid://ckkcc8vor4khv" path="res://mariowonderland_athletic.ogg" id="1_r8jmg"]
+[ext_resource type="Script" path="res://player.gd" id="2_13rbx"]
+[ext_resource type="Script" path="res://mariosprite.gd" id="4_0s37n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn5jx"]
+size = Vector2(1029, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txnjh"]
+size = Vector2(13.8667, 29.8667)
+
+[node name="Node" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_r8jmg")
+autoplay = true
+mix_target = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(509.5, 657.5)
+shape = SubResource("RectangleShape2D_sn5jx")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_13rbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(178, 305)
+scale = Vector2(5.625, 5.625)
+shape = SubResource("RectangleShape2D_txnjh")
+debug_color = Color(1, 0, 0, 0.439216)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(178, 300)
+scale = Vector2(5.625, 5.625)
+texture = ExtResource("1_aafyn")
+script = ExtResource("4_0s37n")

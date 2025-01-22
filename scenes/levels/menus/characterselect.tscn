@@ -1,0 +1,311 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckpadmqki6fmm"]
+
+[ext_resource type="Script" path="res://scripts/level_roots/menus/characterselect.gd" id="1_6bhbj"]
+[ext_resource type="Texture2D" uid="uid://dw5qo12dl6rfx" path="res://assets/images/background/playerselect_grid.png" id="1_mjyc2"]
+[ext_resource type="Script" path="res://scripts/backgrounds/ParallaxBackground_diagonal.gd" id="1_x1wnf"]
+[ext_resource type="FontFile" uid="uid://b8ceitev7cvk8" path="res://assets/fonts/super-mario-bros-nes.ttf" id="4_kgmtj"]
+[ext_resource type="AudioStream" uid="uid://bddo4iybxsulq" path="res://assets/music/charselect_placeholder.ogg" id="4_ruiuy"]
+[ext_resource type="Texture2D" uid="uid://cjfvm1ckne5as" path="res://assets/images/elements/character_select/mario_characterselect.png" id="5_absyt"]
+[ext_resource type="Texture2D" uid="uid://c4jsgfg8788fy" path="res://assets/images/elements/character_select/luigi_charselect.png" id="6_48tmm"]
+[ext_resource type="Texture2D" uid="uid://df3lujgr83nkd" path="res://assets/images/elements/character_select/mario_characterselect_hover.png" id="7_73c7s"]
+[ext_resource type="PackedScene" uid="uid://bdhqisr5qbhwy" path="res://scenes/ui/shape_transition.tscn" id="9_eleiw"]
+[ext_resource type="Texture2D" uid="uid://bm2e4odc7ylms" path="res://assets/images/elements/character_select/luigi_charselect_hover.png" id="9_kceuj"]
+
+[sub_resource type="Animation" id="Animation_jk802"]
+resource_name = "INTRO"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Characters/MARIO:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 0.143587),
+"update": 0,
+"values": [Vector2(1055, 203), Vector2(-64, 203)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Characters/LUIGI:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 0.143587),
+"update": 0,
+"values": [Vector2(-468, 139), Vector2(682, 139)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Characters/MARIO:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Characters/LUIGI:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Misc/ColorRect2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.35, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -192), Vector2(0, 6), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Misc/RichTextLabel2:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-860, 495), Vector2(237, 495)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Misc/RichTextLabel3:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1122, 496), Vector2(2, 496)]
+}
+
+[sub_resource type="Animation" id="Animation_e8i5r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Characters/MARIO:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-64, 203)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Characters/LUIGI:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(682, 139)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Characters/MARIO:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../Characters/LUIGI:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Misc/ColorRect2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Misc/RichTextLabel2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(237, 495)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Misc/RichTextLabel3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 496)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gy17"]
+_data = {
+"INTRO": SubResource("Animation_jk802"),
+"RESET": SubResource("Animation_e8i5r")
+}
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_6bhbj")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+layer = -1
+offset = Vector2(1.655, 0)
+scale = Vector2(7.01, 7.01)
+transform = Transform2D(7.01, 0, 0, 7.01, 1.655, 0)
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_x1wnf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(192, 192)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.270588)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(90.2945, 38.2698)
+texture = ExtResource("1_mjyc2")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1024.0
+offset_bottom = 768.0
+color = Color(0.0509804, 0, 0.0705882, 0.376471)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="MARIO" type="TextureButton" parent="Characters"]
+top_level = true
+texture_filter = 1
+offset_left = -64.0
+offset_top = 203.0
+offset_right = 370.0
+offset_bottom = 768.0
+disabled = true
+texture_normal = ExtResource("5_absyt")
+texture_hover = ExtResource("7_73c7s")
+stretch_mode = 4
+
+[node name="LUIGI" type="TextureButton" parent="Characters"]
+top_level = true
+texture_filter = 1
+offset_left = 682.0
+offset_top = 139.0
+offset_right = 1112.0
+offset_bottom = 768.0
+texture_normal = ExtResource("6_48tmm")
+texture_hover = ExtResource("9_kceuj")
+stretch_mode = 4
+
+[node name="Misc" type="Node2D" parent="."]
+position = Vector2(338, 36)
+
+[node name="ColorRect2" type="ColorRect" parent="Misc"]
+visibility_layer = 2
+offset_right = 374.0
+offset_bottom = 61.0
+color = Color(0.0509804, 0, 0.0705882, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Misc/ColorRect2"]
+visibility_layer = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 361.0
+offset_bottom = 47.0
+theme_override_fonts/normal_font = ExtResource("4_kgmtj")
+theme_override_font_sizes/normal_font_size = 24
+text = "Pick a story !"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Misc"]
+offset_left = 237.0
+offset_top = 495.0
+offset_right = 366.0
+offset_bottom = 525.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_kgmtj")
+theme_override_font_sizes/normal_font_size = 24
+text = "LUIGI"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Misc"]
+offset_left = 2.0
+offset_top = 496.0
+offset_right = 159.0
+offset_bottom = 523.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_kgmtj")
+theme_override_font_sizes/normal_font_size = 24
+text = " MARIO"
+
+[node name="transition" parent="Misc" instance=ExtResource("9_eleiw")]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ruiuy")
+volume_db = -5.621
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Background/ParallaxBackground")
+libraries = {
+"": SubResource("AnimationLibrary_4gy17")
+}
+
+[connection signal="pressed" from="Characters/MARIO" to="." method="_on_mario_pressed"]
+[connection signal="pressed" from="Characters/LUIGI" to="." method="_on_luigi_pressed"]
+[connection signal="animation_finished" from="Misc/transition/base/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="Misc/transition/base/AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+
+[editable path="Misc/transition"]

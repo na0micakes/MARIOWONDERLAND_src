@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://daefcmcnl5hjt"]
+
+[ext_resource type="Script" path="res://scripts/level_roots/menus/titlescreen.gd" id="1_aw4ul"]
+[ext_resource type="Texture2D" uid="uid://bi1hbltsyibso" path="res://assets/images/elements/title/logo.png" id="2_o2dni"]
+[ext_resource type="PackedScene" uid="uid://bdhqisr5qbhwy" path="res://scenes/ui/shape_transition.tscn" id="4_ul85w"]
+[ext_resource type="FontFile" uid="uid://b8ceitev7cvk8" path="res://assets/fonts/super-mario-bros-nes.ttf" id="7_dgsuy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_aw4ul")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 353.0
+offset_top = 566.0
+offset_right = 763.0
+offset_bottom = 608.0
+theme_override_fonts/normal_font = ExtResource("7_dgsuy")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "PRESS ENTER"
+fit_content = true
+scroll_active = false
+tab_size = 5
+visible_characters = 11
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(521, 249)
+scale = Vector2(3.36979, 3.36979)
+texture = ExtResource("2_o2dni")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="singleplayer" type="Button" parent="CanvasLayer"]
+offset_left = 367.0
+offset_top = 509.0
+offset_right = 663.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("7_dgsuy")
+theme_override_font_sizes/font_size = 24
+text = "STORY"
+
+[node name="options" type="Button" parent="CanvasLayer"]
+offset_left = 367.0
+offset_top = 565.0
+offset_right = 663.0
+offset_bottom = 600.0
+theme_override_fonts/font = ExtResource("7_dgsuy")
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+
+[node name="quit" type="Button" parent="CanvasLayer"]
+offset_left = 367.0
+offset_top = 628.0
+offset_right = 663.0
+offset_bottom = 663.0
+theme_override_fonts/font = ExtResource("7_dgsuy")
+theme_override_font_sizes/font_size = 24
+text = "quit"
+
+[node name="transition" parent="." instance=ExtResource("4_ul85w")]
+
+[connection signal="pressed" from="CanvasLayer/singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="transition/base/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="transition"]

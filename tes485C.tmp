@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw44qeytwyd1g"]
+
+[ext_resource type="AudioStream" uid="uid://ckkcc8vor4khv" path="res://mariowonderland_athletic.ogg" id="1_r8jmg"]
+[ext_resource type="Script" path="res://player.gd" id="2_13rbx"]
+[ext_resource type="Texture2D" uid="uid://dl7xbyp74nqe4" path="res://crouch.png" id="3_2w2e5"]
+[ext_resource type="Texture2D" uid="uid://dihbbvbxwaegg" path="res://idle1.png" id="3_sfpcv"]
+[ext_resource type="Script" path="res://mariosprite.gd" id="4_0s37n"]
+[ext_resource type="Texture2D" uid="uid://cqer4fuwbp48y" path="res://idle2.png" id="4_mc87s"]
+[ext_resource type="Texture2D" uid="uid://cnpqgqdq3yj7v" path="res://cloud_floor.png" id="5_53e3y"]
+[ext_resource type="Texture2D" uid="uid://3poydl2tdhrh" path="res://jump.png" id="5_duglj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn5jx"]
+size = Vector2(1029, 227)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txnjh"]
+size = Vector2(13.8667, 29.8667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgjp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2w2e5")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sfpcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mc87s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mc87s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mc87s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mc87s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_duglj")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="Node" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(463, 340)
+scale = Vector2(10, 10)
+texture = ExtResource("5_53e3y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(509.5, 657.5)
+shape = SubResource("RectangleShape2D_sn5jx")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_13rbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(178, 305)
+scale = Vector2(5.625, 5.625)
+shape = SubResource("RectangleShape2D_txnjh")
+debug_color = Color(1, 0, 0, 0.439216)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(178, 300)
+scale = Vector2(5.625, 5.625)
+sprite_frames = SubResource("SpriteFrames_jgjp8")
+animation = &"crouch"
+script = ExtResource("4_0s37n")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(173, 308)
+scale = Vector2(3, 3)
+zoom = Vector2(0.8, 0.8)
+process_callback = 0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_r8jmg")
+autoplay = true
+mix_target = 1

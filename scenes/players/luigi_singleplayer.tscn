@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3lxjeyx54sq3"]
+
+[ext_resource type="Script" path="res://scripts/player/luigi/luigiplayer.gd" id="1_odo4k"]
+[ext_resource type="AudioStream" uid="uid://b30i31t1xkoxg" path="res://assets/sfx/player/jump_sfx.ogg" id="2_psij2"]
+[ext_resource type="Texture2D" uid="uid://u1ph17bemsjo" path="res://assets/images/player/luigi/crouch.png" id="3_147gn"]
+[ext_resource type="Texture2D" uid="uid://dgcswxg82hu61" path="res://assets/images/player/luigi/idle/idle2.png" id="4_d1rps"]
+[ext_resource type="Texture2D" uid="uid://cndr0qyrnygcn" path="res://assets/images/player/luigi/idle/idle1.png" id="5_n8c6s"]
+[ext_resource type="Texture2D" uid="uid://c4vpk64sdkqwr" path="res://assets/images/player/luigi/jump/jump.png" id="6_r10l0"]
+[ext_resource type="Texture2D" uid="uid://dkl6nqm8gigvc" path="res://assets/images/player/luigi/lookup.png" id="7_5yqw8"]
+[ext_resource type="Texture2D" uid="uid://beuksr2gscf5h" path="res://assets/images/player/luigi/walk/1.png" id="8_bxdbg"]
+[ext_resource type="Texture2D" uid="uid://cbp2pwbigtx81" path="res://assets/images/player/luigi/walk/2.png" id="9_h86b1"]
+[ext_resource type="Texture2D" uid="uid://bevbi521pv761" path="res://assets/images/player/luigi/walk/3.png" id="10_ks08d"]
+[ext_resource type="AudioStream" uid="uid://wq1e3kynoep6" path="res://assets/sfx/player/walk_sfx.ogg" id="12_b5wtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b40j2"]
+size = Vector2(14.2222, 33.7778)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7yuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_147gn")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d1rps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n8c6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n8c6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n8c6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n8c6s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_r10l0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5yqw8")
+}],
+"loop": true,
+"name": &"lookup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bxdbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h86b1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ks08d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h86b1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="LUIGI" type="CharacterBody2D"]
+position = Vector2(196, 146.005)
+script = ExtResource("1_odo4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(177, 299)
+scale = Vector2(5.625, 5.625)
+shape = SubResource("RectangleShape2D_b40j2")
+debug_color = Color(0, 1, 0, 0.439216)
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-20, -155)
+stream = ExtResource("2_psij2")
+volume_db = 9.407
+pitch_scale = 1.23
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(177, 298)
+scale = Vector2(5.625, 5.625)
+sprite_frames = SubResource("SpriteFrames_p7yuf")
+animation = &"crouch"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="walk_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_b5wtc")
+volume_db = 1.944
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="LUIGI" type="Node2D" parent="."]

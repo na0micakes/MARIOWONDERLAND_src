@@ -1,0 +1,176 @@
+[gd_scene load_steps=16 format=3 uid="uid://c476p3bi20u8u"]
+
+[ext_resource type="Script" path="res://scripts/player/mario/player.gd" id="1_twtnm"]
+[ext_resource type="Texture2D" uid="uid://dl7xbyp74nqe4" path="res://assets/images/player/mario/crouch.png" id="2_ksx32"]
+[ext_resource type="Texture2D" uid="uid://cw4twnkubq76b" path="res://assets/images/player/mario/falling.png" id="3_jc0sd"]
+[ext_resource type="Texture2D" uid="uid://dihbbvbxwaegg" path="res://assets/images/player/mario/idle1.png" id="3_v4p3p"]
+[ext_resource type="Texture2D" uid="uid://cqer4fuwbp48y" path="res://assets/images/player/mario/idle2.png" id="4_t5o5m"]
+[ext_resource type="Texture2D" uid="uid://3poydl2tdhrh" path="res://assets/images/player/mario/jump.png" id="5_guxyk"]
+[ext_resource type="Texture2D" uid="uid://cw1r7y6jn4sks" path="res://assets/images/player/mario/lookup.png" id="6_ypti8"]
+[ext_resource type="Texture2D" uid="uid://6q4h2p271yg4" path="res://assets/images/player/mario/1.png" id="7_xst6r"]
+[ext_resource type="Texture2D" uid="uid://b03tng7bh6m8d" path="res://assets/images/player/mario/2.png" id="8_j7gmk"]
+[ext_resource type="Texture2D" uid="uid://bd8xryfx2k0x7" path="res://assets/images/player/mario/3.png" id="9_i4j4y"]
+[ext_resource type="Script" path="res://scripts/player/mario/mariosprite.gd" id="10_b3h3j"]
+[ext_resource type="AudioStream" uid="uid://b30i31t1xkoxg" path="res://assets/sfx/jump_sfx.ogg" id="11_3mldk"]
+[ext_resource type="AudioStream" uid="uid://wq1e3kynoep6" path="res://assets/sfx/walk_sfx.ogg" id="12_8jc4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg3ut"]
+size = Vector2(13.8667, 29.8667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqiu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ksx32")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc0sd")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v4p3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5o5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5o5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5o5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t5o5m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guxyk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ypti8")
+}],
+"loop": true,
+"name": &"lookup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xst6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j7gmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i4j4y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="MARIO" type="CharacterBody2D" node_paths=PackedStringArray("camera_sync")]
+position = Vector2(20, 145.005)
+floor_stop_on_slope = false
+floor_constant_speed = true
+script = ExtResource("1_twtnm")
+camera_sync = NodePath("")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(178, 305)
+scale = Vector2(5.625, 5.625)
+shape = SubResource("RectangleShape2D_xg3ut")
+debug_color = Color(1, 0, 0, 0.439216)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(178, 300)
+scale = Vector2(5.625, 5.625)
+sprite_frames = SubResource("SpriteFrames_vqiu5")
+animation = &"jump"
+script = ExtResource("10_b3h3j")
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-20, -155)
+stream = ExtResource("11_3mldk")
+volume_db = 9.407
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="walk_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_8jc4y")
+
+[node name="Node2D" type="Node2D" parent="."]

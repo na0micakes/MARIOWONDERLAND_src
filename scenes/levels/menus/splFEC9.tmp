@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn54ar334jbcb"]
+
+[ext_resource type="Script" path="res://scripts/level_roots/splash.gd" id="1_sr8fe"]
+[ext_resource type="Texture2D" uid="uid://bjsm8awavw65b" path="res://assets/images/elements/splash/naomi.png" id="2_o478x"]
+[ext_resource type="FontFile" uid="uid://b8ceitev7cvk8" path="res://assets/fonts/super-mario-bros-nes.ttf" id="3_nkxgy"]
+[ext_resource type="AudioStream" uid="uid://c5jli7m62ks0h" path="res://assets/sfx/general/level_elements/coin_sfx.ogg" id="4_drnk7"]
+[ext_resource type="PackedScene" uid="uid://bs27rqfoh4kvi" path="res://scenes/ui/transition.tscn" id="5_ydw0f"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sr8fe")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 768.0
+color = Color(0.0509804, 0, 0.0705882, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="bg"]
+texture_filter = 1
+position = Vector2(238, 375)
+scale = Vector2(4.95313, 4.95313)
+texture = ExtResource("2_o478x")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="bg"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 445.0
+offset_top = 357.0
+offset_right = 876.0
+offset_bottom = 403.0
+theme_override_fonts/normal_font = ExtResource("3_nkxgy")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "na0micakes"
+fit_content = true
+scroll_active = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_drnk7")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="transition" parent="." instance=ExtResource("5_ydw0f")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

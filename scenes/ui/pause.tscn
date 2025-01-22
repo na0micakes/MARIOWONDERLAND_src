@@ -1,0 +1,302 @@
+[gd_scene load_steps=10 format=3 uid="uid://daeelkykmk1wh"]
+
+[ext_resource type="Script" path="res://scripts/ui/paused.gd" id="1_guhti"]
+[ext_resource type="FontFile" uid="uid://b8ceitev7cvk8" path="res://assets/fonts/super-mario-bros-nes.ttf" id="2_rb3tf"]
+[ext_resource type="AudioStream" uid="uid://vxhelvdy5fhi" path="res://assets/sfx/general/ui/pause_sfx.ogg" id="3_331d7"]
+[ext_resource type="PackedScene" uid="uid://bdhqisr5qbhwy" path="res://scenes/ui/shape_transition.tscn" id="4_hbxtv"]
+[ext_resource type="AudioStream" uid="uid://pil6bl27moa7" path="res://assets/music/Pause.ogg" id="5_u2jvn"]
+
+[sub_resource type="Animation" id="Animation_h6tjf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0509804, 0, 0.0705882, 0.380392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ResumeBtn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../RestartBtn:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../QuitBtn:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:volume_db")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-9.509]
+}
+
+[sub_resource type="Animation" id="Animation_0h4vk"]
+resource_name = "intro"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0509804, 0, 0.0705882, 0), Color(0.0509804, 0, 0.0705882, 0.133333), Color(0.0509804, 0, 0.0705882, 0.380392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, -82), Vector2(32, 11), Vector2(32, 42), Vector2(32, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ResumeBtn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../RestartBtn:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../QuitBtn:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_qcxox"]
+resource_name = "musicFadeOut"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-9.509, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_181so"]
+_data = {
+"RESET": SubResource("Animation_h6tjf"),
+"intro": SubResource("Animation_0h4vk"),
+"musicFadeOut": SubResource("Animation_qcxox")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_guhti")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 984.0
+offset_bottom = 728.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0, 0.0705882, 0.380392)
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 411.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0509804, 0, 0.0705882, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 21.0
+offset_right = 399.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("2_rb3tf")
+theme_override_font_sizes/font_size = 32
+text = "PAUSED . . ."
+
+[node name="ResumeBtn" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 161.0
+offset_top = 235.0
+offset_right = 361.0
+offset_bottom = 279.0
+theme_override_colors/font_disabled_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_colors/icon_normal_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_colors/icon_focus_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0.0509804, 0, 0.0705882, 1)
+theme_override_fonts/font = ExtResource("2_rb3tf")
+theme_override_font_sizes/font_size = 32
+text = "RESUME"
+
+[node name="RestartBtn" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 376.0
+offset_top = 402.0
+offset_right = 608.0
+offset_bottom = 446.0
+theme_override_fonts/font = ExtResource("2_rb3tf")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+
+[node name="QuitBtn" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 665.0
+offset_top = 554.0
+offset_right = 801.0
+offset_bottom = 598.0
+theme_override_fonts/font = ExtResource("2_rb3tf")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="pause_sfx" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("3_331d7")
+volume_db = -9.233
+mix_target = 2
+
+[node name="BGM" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("5_u2jvn")
+volume_db = -9.509
+
+[node name="PauseAnimations" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../BGM")
+libraries = {
+"": SubResource("AnimationLibrary_181so")
+}
+
+[node name="transition" parent="Control" instance=ExtResource("4_hbxtv")]
+
+[connection signal="pressed" from="Control/ResumeBtn" to="Control" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Control/RestartBtn" to="Control" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="Control/QuitBtn" to="Control" method="_on_quit_btn_pressed"]
+[connection signal="animation_finished" from="Control/transition/base/AnimationPlayer" to="Control" method="_on_animation_player_animation_finished"]
+
+[editable path="Control/transition"]
