@@ -19,9 +19,7 @@ func _ready():
 	mario.can_move = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	var player = get_node(MARIO)
-	
+func _process(_delta: float) -> void:	
 	if hud.seconds < 0 and !timeover:
 		timeover = true
 		mario.is_dead = true

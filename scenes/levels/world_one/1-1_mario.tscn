@@ -212,7 +212,7 @@ texture = ExtResource("7_i5c7c")
 
 [node name="Bottom_Clouds" type="ParallaxLayer" parent="Background/Parallax"]
 texture_repeat = 2
-position = Vector2(0, -24)
+position = Vector2(0, 27)
 motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1200, 0)
 script = ExtResource("6_cmcir")
@@ -220,7 +220,7 @@ SPEED = -10
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Parallax/Bottom_Clouds"]
 texture_repeat = 2
-position = Vector2(377, 378)
+position = Vector2(431, 378)
 scale = Vector2(4, 4)
 texture = ExtResource("8_670ag")
 
@@ -266,7 +266,7 @@ layer_0/tile_data = PackedInt32Array(131082, 327680, 0, 131083, 196608, 0, -6552
 position = Vector2(673, 280)
 
 [node name="MARIO" parent="Level_Elements" instance=ExtResource("12_7wf7a")]
-position = Vector2(143, 574)
+position = Vector2(143, 791)
 scale = Vector2(0.8, 0.8)
 
 [node name="Death_Border" type="Node2D" parent="Level_Elements"]

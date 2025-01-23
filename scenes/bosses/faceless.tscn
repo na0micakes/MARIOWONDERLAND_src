@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://bdvdmvv0q20ci"]
+
+[ext_resource type="Texture2D" uid="uid://dl7xbyp74nqe4" path="res://assets/images/player/mario/crouch.png" id="2_u2a0y"]
+[ext_resource type="Texture2D" uid="uid://dox15j6ry7ier" path="res://assets/images/player/mario/dead.png" id="3_vnxfn"]
+[ext_resource type="Texture2D" uid="uid://cdmw7g1u3je87" path="res://assets/images/player/anomaly/jump/fall.png" id="4_q43ve"]
+[ext_resource type="Texture2D" uid="uid://bib27yug8tn6c" path="res://assets/images/player/anomaly/idle.png" id="5_4s02s"]
+[ext_resource type="Texture2D" uid="uid://cmbqey2r5phto" path="res://assets/images/player/anomaly/jump/jump.png" id="6_j4ky6"]
+[ext_resource type="Texture2D" uid="uid://cw1r7y6jn4sks" path="res://assets/images/player/mario/lookup.png" id="9_s4km3"]
+[ext_resource type="Texture2D" uid="uid://6q4h2p271yg4" path="res://assets/images/player/mario/walking/1.png" id="10_nslgv"]
+[ext_resource type="Texture2D" uid="uid://b03tng7bh6m8d" path="res://assets/images/player/mario/walking/2.png" id="11_uyv67"]
+[ext_resource type="Texture2D" uid="uid://bd8xryfx2k0x7" path="res://assets/images/player/mario/walking/3.png" id="12_deim1"]
+[ext_resource type="Script" path="res://scripts/player/mario/mariosprite.gd" id="13_ops8e"]
+[ext_resource type="AudioStream" uid="uid://b30i31t1xkoxg" path="res://assets/sfx/player/jump_sfx.ogg" id="14_mnx76"]
+[ext_resource type="AudioStream" uid="uid://wq1e3kynoep6" path="res://assets/sfx/player/walk_sfx.ogg" id="15_g22t1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg3ut"]
+size = Vector2(13.8667, 29.8667)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqiu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u2a0y")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vnxfn")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q43ve")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4s02s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_j4ky6")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_s4km3")
+}],
+"loop": true,
+"name": &"lookup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nslgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uyv67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_deim1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="FACELESS" type="CharacterBody2D"]
+position = Vector2(20, 145.005)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.00500488)
+scale = Vector2(5.625, 5.625)
+shape = SubResource("RectangleShape2D_xg3ut")
+debug_color = Color(1, 0, 0, 0.439216)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5.005)
+scale = Vector2(5.625, 5.625)
+sprite_frames = SubResource("SpriteFrames_vqiu5")
+animation = &"fall"
+autoplay = "idle"
+script = ExtResource("13_ops8e")
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-20, -155)
+stream = ExtResource("14_mnx76")
+volume_db = 9.407
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="walk_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_g22t1")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="death_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

@@ -11,3 +11,6 @@ func _ready() -> void:
 func _on_trigger_area_body_entered(body: Node2D) -> void:
 	camera.canfollow_y = false
 	mario.GRAVITY = 5000
+	
+func _on_trigger_area_2_body_entered(body: Node2D) -> void:
+	$Cutscene.play("camera")

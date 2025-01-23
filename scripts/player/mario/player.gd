@@ -12,6 +12,7 @@ var dead_anim = false
 var jump_count = 0
 
 @export var can_move = true
+@export var can_look = true
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -118,13 +119,13 @@ func _physics_process(delta):
 		get_node("jump_sfx").play()
 		
 	#misc
-	if is_on_floor() and Input.is_action_pressed("ui_up"):
+	if is_on_floor() and Input.is_action_pressed("ui_up") and can_look:
 		can_move = false
 		_animated_sprite.play("lookup")
-	elif is_on_floor() and Input.is_action_just_released("ui_up"):
+	elif is_on_floor() and Input.is_action_just_released("ui_up") and can_look:
 		can_move = true
 			
-	if is_on_floor() and Input.is_action_pressed("ui_down"):
+	if is_on_floor() and Input.is_action_pressed("ui_down") and can_look:
 		_animated_sprite.play("crouch")
 		velocity.x = move_toward(velocity.x, Input.get_axis(&"move_left", &"move_right"), STOP_FORCE * delta)
 		
@@ -139,8 +140,9 @@ func death():
 	GRAVITY = 0
 	velocity.x = 0
 	velocity.y = 0
+	$DeathJingle.play()
 	$CollisionShape2D.disabled = true
-	$death_timer.start(0.75)
+	$death_timer.start(0.65)
 		
 func jump():
 	velocity.y = -JUMP_SPEED
@@ -153,7 +155,7 @@ func double_jump():
 	velocity.y = -JUMP_SPEED + 950
 
 func _on_death_timer_timeout() -> void:
-	JUMP_SPEED = 1650
+	JUMP_SPEED = 2500
 	velocity.y = -JUMP_SPEED
 	GRAVITY = 4950
 	

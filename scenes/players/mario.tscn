@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c476p3bi20u8u"]
+[gd_scene load_steps=19 format=3 uid="uid://c476p3bi20u8u"]
 
 [ext_resource type="Script" path="res://scripts/player/mario/player.gd" id="1_twtnm"]
 [ext_resource type="Texture2D" uid="uid://dl7xbyp74nqe4" path="res://assets/images/player/mario/crouch.png" id="2_ksx32"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/player/mario/mariosprite.gd" id="10_b3h3j"]
 [ext_resource type="AudioStream" uid="uid://b30i31t1xkoxg" path="res://assets/sfx/player/jump_sfx.ogg" id="11_3mldk"]
 [ext_resource type="AudioStream" uid="uid://wq1e3kynoep6" path="res://assets/sfx/player/walk_sfx.ogg" id="12_8jc4y"]
+[ext_resource type="AudioStream" uid="uid://be3ofvq4ckn6y" path="res://assets/music/Death.ogg" id="16_ytygb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg3ut"]
 size = Vector2(13.8667, 29.8667)
@@ -163,17 +164,17 @@ position = Vector2(20, 145.005)
 script = ExtResource("1_twtnm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(178, 305)
+position = Vector2(0, -0.00500488)
 scale = Vector2(5.625, 5.625)
 shape = SubResource("RectangleShape2D_xg3ut")
 debug_color = Color(1, 0, 0, 0.439216)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(178, 300)
+position = Vector2(0, -5.005)
 scale = Vector2(5.625, 5.625)
 sprite_frames = SubResource("SpriteFrames_vqiu5")
-animation = &"front"
+animation = &"idle"
 script = ExtResource("10_b3h3j")
 
 [node name="jump_sfx" type="AudioStreamPlayer2D" parent="."]
@@ -192,5 +193,9 @@ stream = ExtResource("12_8jc4y")
 
 [node name="death_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathJingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ytygb")
+volume_db = -6.443
 
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]
