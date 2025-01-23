@@ -18,7 +18,7 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var player = get_node(MARIO)
+	#var player = get_node(MARIO) ## This is causing console abuse. - MemeMaster
 	
 	if hud.seconds < 0 and !timeover:
 		timeover = true

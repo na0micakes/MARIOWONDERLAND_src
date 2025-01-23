@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://v6ojcdri425"]
+
+[ext_resource type="AudioStream" uid="uid://c5jli7m62ks0h" path="res://assets/sfx/general/level_elements/coin_sfx.ogg" id="1_c2om8"]
+
+[node name="LevelSfx" type="Node"]
+
+[node name="Coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_c2om8")
+volume_db = 3.0

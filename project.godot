@@ -22,6 +22,8 @@ config/icon="res://mariowonderland_icon.png"
 [autoload]
 
 Global="*res://scripts/global/global.gd"
+LevelSfx="*res://global/LevelSFX.tscn"
+global="*res://global/globalvars.gd"
 
 [display]
 
@@ -35,7 +37,7 @@ movie_writer/fps=240
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/nklbdev.parallax/plugin.cfg", "res://addons/nklbdev.previewing_parallax_background/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

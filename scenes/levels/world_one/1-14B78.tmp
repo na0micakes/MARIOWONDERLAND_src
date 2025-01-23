@@ -199,7 +199,6 @@ scroll_ignore_camera_zoom = true
 [node name="Top_Clouds" type="ParallaxLayer" parent="Background/Parallax"]
 texture_repeat = 2
 position = Vector2(1, 0)
-motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(1200, 0)
 script = ExtResource("6_cmcir")
 SPEED = -35
@@ -212,8 +211,7 @@ texture = ExtResource("7_i5c7c")
 
 [node name="Bottom_Clouds" type="ParallaxLayer" parent="Background/Parallax"]
 texture_repeat = 2
-position = Vector2(0, -24)
-motion_scale = Vector2(0.1, 0.1)
+position = Vector2(1, -25)
 motion_mirroring = Vector2(1200, 0)
 script = ExtResource("6_cmcir")
 SPEED = -10
@@ -262,9 +260,6 @@ tile_set = SubResource("TileSet_duq0a")
 format = 2
 layer_0/tile_data = PackedInt32Array(131082, 327680, 0, 131083, 196608, 0, -65524, 196608, 0, 131084, 327680, 0, 131085, 196608, 0, 131086, 327680, 0, 262162, 0, 0, 327698, 0, 1, 262163, 65536, 0, 327699, 65536, 1, 196634, 0, 0, 262170, 0, 1, 327706, 0, 1, 131105, 0, 0, 196641, 0, 1, 262177, 0, 1, 327713, 0, 1, 196635, 65536, 0, 262171, 65536, 1, 327707, 65536, 1, 131106, 65536, 0, 196642, 65536, 1, 262178, 65536, 1, 327714, 65536, 1, 131080, 327680, 0, 131113, 0, 0, 196649, 0, 1, 262185, 0, 1, 327721, 0, 1, 131114, 65536, 0, 196650, 65536, 1, 262186, 65536, 1, 327722, 65536, 1, 131128, 327680, 0, 131129, 327680, 0, 131130, 327680, 0, 131131, 327680, 0, -65476, 327680, 0, -65475, 327680, 0, -65474, 327680, 0, -65473, 327680, 0, -65472, 327680, 0, -65471, 327680, 0, -65470, 327680, 0, -65469, 327680, 0, -65468, 327680, 0, -65467, 327680, 0, -65463, 327680, 0, -65462, 327680, 0, -65461, 327680, 0, -65460, 196608, 0)
 
-[node name="COIN" parent="Level_Elements/Tiles" instance=ExtResource("16_mtwpj")]
-position = Vector2(673, 280)
-
 [node name="MARIO" parent="Level_Elements" instance=ExtResource("12_7wf7a")]
 position = Vector2(143, 574)
 scale = Vector2(0.8, 0.8)
@@ -294,6 +289,9 @@ shape = SubResource("RectangleShape2D_jpecq")
 stream = ExtResource("13_wco7m")
 volume_db = -3.199
 mix_target = 2
+
+[node name="COIN" parent="." instance=ExtResource("16_mtwpj")]
+position = Vector2(766, 135)
 
 [connection signal="timeout" from="Intro_Cutscene/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Intro_Cutscene/CollisionTimer" to="." method="_on_collision_timer_timeout"]

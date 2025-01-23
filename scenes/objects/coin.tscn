@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://f7rh2tfjmtl7"]
 
-[ext_resource type="Script" path="res://scripts/objects/coin_root.gd" id="1_tp21q"]
+[ext_resource type="Script" path="res://scenes/objects/coin.gd" id="1_3whw5"]
 [ext_resource type="Texture2D" uid="uid://b8wb0x6yuh282" path="res://assets/images/objects/coin/coin1.png" id="2_v2bdf"]
 [ext_resource type="Texture2D" uid="uid://bpnk1unkgvwse" path="res://assets/images/objects/coin/coin2.png" id="3_a4d5g"]
 [ext_resource type="Texture2D" uid="uid://cd53abigfbvdq" path="res://assets/images/objects/coin/coin3.png" id="4_ufkrw"]
@@ -62,9 +62,9 @@ animations = [{
 }]
 
 [node name="COIN" type="Node2D"]
-script = ExtResource("1_tp21q")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_3whw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vqqt6")
@@ -74,6 +74,9 @@ texture_filter = 1
 scale = Vector2(5.625, 5.625)
 sprite_frames = SubResource("SpriteFrames_ayoei")
 animation = &"idle"
-frame_progress = 0.0862637
+frame = 6
+frame_progress = 0.37137
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
